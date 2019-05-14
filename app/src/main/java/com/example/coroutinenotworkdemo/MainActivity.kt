@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
                 val cost=measureTimeMillis {
                     val result=demoSupendFun()
                     Log.i("pisa","get result=$result")
+                    //下面经过资源混淆之后，withContext里面的块没得到执行。。
                     withContext(Dispatchers.Main){
                         textview.text=result
                     }
